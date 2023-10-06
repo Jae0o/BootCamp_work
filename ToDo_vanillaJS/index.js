@@ -1,5 +1,5 @@
-// App 앱 전체에 어떤 component 들이 다루어지는지
-
+// 초기의 데이터를 넣고 관리하는 js
+// App을 실행
 
 const state = {
   listCount: 2,
@@ -15,3 +15,6 @@ const state = {
     }
   ]
 }
+
+const bodyElement = document.querySelector("body")
+new App({ target: bodyElement, state })

@@ -7,6 +7,7 @@ function App({ target, state }) {
 
   this.render = function () {
 
+    new Header({ target: appElement, state });
 
 
 

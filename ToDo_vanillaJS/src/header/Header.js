@@ -7,7 +7,7 @@ function Header({ target, state }) {
 
     new Title({ target: headerElement, state })
 
-
+    new ListCounter({ target: headerElement, state })
 
   };
 

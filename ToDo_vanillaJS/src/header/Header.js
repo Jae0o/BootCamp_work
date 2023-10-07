@@ -2,6 +2,7 @@
 function Header({ target, state }) {
   const headerElement = document.createElement("header")
   target.appendChild(headerElement)
+  headerElement.setAttribute("class", "header")
 
   this.render = function () {
 

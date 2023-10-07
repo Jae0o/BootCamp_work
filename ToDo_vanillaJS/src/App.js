@@ -9,7 +9,7 @@ function App({ target, state }) {
 
     new Header({ target: appElement, state });
 
-
+    new Footer({ target: appElement })
 
 
 

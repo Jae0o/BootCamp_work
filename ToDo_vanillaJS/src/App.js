@@ -30,10 +30,10 @@ function App({ target }) {
     // todolist들 안에서 일어난 event들에 대한 동작 함수
     onEvent: (params) => {
       // 삭제 버튼에서 발생한 이벤트여서 deleteTarget 이라는 프로퍼티는 가지고 있는지 검사하는 조건문
-      if (params.hasOwnProperty("deleteTarget")) {
+      if (params.hasOwnProperty("isDelete")) {
         // removeList 함수를 통해 전달받은 key를 통해 리스트를 삭제함
         // 삭제된후의 리스트들을 반환하기때문에 리스트들을 담은 newState 라는 변수에 할당
-        const newState = removeList(params.deleteTarget?.key)
+        const newState = removeList(params?.key)
         // 그리고 상태변화를 위해 setState 에 새로운 리스트를 전달함
         todoList.setState(newState)
       }
@@ -55,7 +55,7 @@ function App({ target }) {
 
 
   // form / input 관련 footer 생성자 함수 호출
-  new Footer({
+  new Form({
     target: appElement,
     // 만약 submit Event 가 발생했을때의 처리를 위한 함수
     onSubmit: (text) => {

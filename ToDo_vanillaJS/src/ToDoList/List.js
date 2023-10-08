@@ -1,4 +1,8 @@
 function List({ isCompleted, text, key, onDelete, onToggle }) {
+  if (!new.target) {
+    throw Error("생성자 함수에 new 기재 안함!")
+  }
+
   const listElement = document.createElement('li')
 
   // isComplete 관련

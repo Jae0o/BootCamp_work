@@ -1,4 +1,8 @@
 function Footer({ target, onSubmit }) {
+  if (!new.target) {
+    throw Error("생성자 함수에 new 기재 안함!")
+  }
+
   const footerElement = document.createElement("form");
   target.appendChild(footerElement)
   footerElement.setAttribute("class", "footer")

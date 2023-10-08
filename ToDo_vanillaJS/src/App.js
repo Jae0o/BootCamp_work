@@ -1,6 +1,9 @@
 // App 앱 전체에 어떤 component 들이 다루어지는지
 
 function App({ target }) {
+  if (!new.target) {
+    throw Error("생성자 함수에 new 기재 안함!")
+  }
 
   // app Element 생성과 target 연결 그리고 id 속성 부여
   const appElement = document.createElement("div")

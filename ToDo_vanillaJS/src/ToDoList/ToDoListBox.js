@@ -1,4 +1,7 @@
 function ToDoListBox({ target, state, onEvent }) {
+  if (!new.target) {
+    throw Error("생성자 함수에 new 기재 안함!")
+  }
 
   const ulElement = document.createElement("ul")
   target.appendChild(ulElement)

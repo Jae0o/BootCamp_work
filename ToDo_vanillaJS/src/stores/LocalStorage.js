@@ -18,7 +18,7 @@ function getList() {
 function getCount() {
   const data = getList()
   const totalListsCount = data.length
-  const completeCount = data.filter((list) => list.isComplete === false).length
+  const completeCount = data.filter((list) => list.isComplete).length
 
   return { completeCount, totalListsCount }
 }
@@ -28,4 +28,20 @@ function removeList(key) {
   const filterd = [...getList()].filter((item) => item.key === key ? false : true)
   localStorage.setItem("lists", JSON.stringify(filterd))
   return filterd
+}
+
+function changeComplete({ key: checkKey }) {
+  const newState = getList().map((list) => {
+    let { isComplete, text, key } = list
+
+    if (key === checkKey) {
+      isComplete = !isComplete
+    }
+
+    return { isComplete, text, key }
+  })
+
+  localStorage.setItem("lists", JSON.stringify(newState))
+  console.log(newState)
+  return newState
 }

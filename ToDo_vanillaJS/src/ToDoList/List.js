@@ -1,8 +1,14 @@
-function List({ isComplete, text, key, onDelete }) {
+function List({ isComplete, text, key, onDelete, onCompleted }) {
   const listElement = document.createElement('li')
+  console.log(isComplete)
+  // isComplete 관련
 
-  const completeButton = document.createElement('button')
-  listElement.appendChild(completeButton)
+  const completeCheckBox = document.createElement('input')
+  completeCheckBox.setAttribute("type", "checkbox")
+  listElement.appendChild(completeCheckBox)
+  completeCheckBox.addEventListener("click", () => {
+    onCompleted({ key, isComplete })
+  })
 
   const pElement = document.createElement("p")
   listElement.appendChild(pElement)
@@ -14,11 +20,15 @@ function List({ isComplete, text, key, onDelete }) {
   deleteButton.textContent = "Delete"
 
   deleteButton.addEventListener('click', () => {
-    onDelete({ key })
+    const deleteTarget = { key }
+    onDelete({ deleteTarget })
   })
+
+  if (isComplete) {
+    completeCheckBox.setAttribute("checked", "true")
+    pElement.style.textDecoration = "line-through"
+  }
 
   return listElement
 }
-// isComplete를 어떻게 바꿀것인가..
 
-// 삭제는 ?

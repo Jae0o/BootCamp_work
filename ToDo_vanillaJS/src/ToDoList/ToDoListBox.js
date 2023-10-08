@@ -6,14 +6,14 @@ function ToDoListBox({ target, state, onEvent }) {
 
 
   // 상태의 변화에따른 동작
-  this.setSate = function (newState) {
+  this.setState = function (newState) {
     this.listData = newState
     this.render()
   }
 
   // 이벤트 발생시의 동작
-  this.setEvent = function (param) {
-    onEvent(param)
+  this.setEvent = function (params) {
+    onEvent(params)
   }
 
 
@@ -33,7 +33,9 @@ function ToDoListBox({ target, state, onEvent }) {
         isComplete,
         text,
         key,
-        onDelete: (lists) => this.setEvent(lists)
+        onDelete: (lists) => this.setEvent(lists),
+        onCompleted: (target) => this.setEvent(target)
+
       })
     })]
 

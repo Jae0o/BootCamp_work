@@ -3,20 +3,20 @@ function ListCounter({ target, count }) {
   target.appendChild(pElement);
   pElement.setAttribute("class", "header_listCounter")
 
-  let { totalListsCount, completeCount } = count
+  let { totalCount, completedCount } = count
 
   this.Refresh = ({
-    totalListsCount: newTotalListsCount,
-    completeCount: newCompleteCount
+    totalCount: newTotalCount,
+    completedCount: newCompletedCount
   }) => {
-
-    totalListsCount = newTotalListsCount
-    completeCount = newCompleteCount
+    totalCount = newTotalCount
+    completedCount = newCompletedCount
 
     this.render()
   }
+
   this.render = function () {
-    pElement.textContent = `total list : ${totalListsCount} / complete list : ${completeCount}`
+    pElement.textContent = `total list : ${totalCount} / complete list : ${completedCount}`
   }
   this.render()
 

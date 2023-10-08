@@ -1,39 +1,49 @@
 // App 앱 전체에 어떤 component 들이 다루어지는지
 
-function App() {
+function App({ target }) {
 
-  const appElement = document.querySelector("#App")
+  // app Element 생성과 target 연결 그리고 id 속성 부여
+  const appElement = document.createElement("div")
+  target.appendChild(appElement)
+  appElement.setAttribute("id", "app")
 
-
+  // 맨처음 rendering 되는 순간 list 들을 담은 state
+  // list들의 총 갯수 / 완료된 리스트 갯수 를 담은 listCount 변수 생성
   const state = getList()
   const listsCount = getCount()
 
-
-
+  // header를 생성하며 target은 app / 전달 상태값은 listCount
   const header = new Header({
     target: appElement,
     state: listsCount
   });
 
-
-
+  // list 들을 담을 todoList component 호출 target 은 app
   const todoList = new ToDoListBox({
     target: appElement,
+    // 상태는 list들을 담은 state 전달
     state,
+    // todolist들 안에서 일어난 event들에 대한 동작 함수
     onEvent: (params) => {
-      if (!!params?.deleteTarget) {
-        // 삭제 구현!
+      // 삭제 버튼에서 발생한 이벤트여서 deleteTarget 이라는 프로퍼티는 가지고 있는지 검사하는 조건문
+      if (params.hasOwnProperty("deleteTarget")) {
+        // removeList 함수를 통해 전달받은 key를 통해 리스트를 삭제함
+        // 삭제된후의 리스트들을 반환하기때문에 리스트들을 담은 newState 라는 변수에 할당
         const newState = removeList(params.deleteTarget?.key)
+        // 그리고 상태변화를 위해 setState 에 새로운 리스트를 전달함
         todoList.setState(newState)
       }
 
-      if (params.hasOwnProperty('isComplete')) {
+      // 삭제 로직과 비슷하게 isCompleted 프로퍼티가 params에 담겨있다면 complete 뱐경로직 실행
+      if (params.hasOwnProperty('isCompleted')) {
+        // chagaeComplete 함수를 통해 대상 리스트의 isCompleted 를 변경해주고
+        // 새로운 리스트를 newState에 담아 todoList의 상태를 변화함
         const newState = changeComplete(params)
         todoList.setState(newState)
       }
 
-
-      // Event로 인한 변동사항에 맞게 다시 Render 하도록
+      // 삭제 / 변경 Event 모두 Count가 변화 되기때문에
+      // Evnet로인한 변동사항에 맞게 다시 Render 하도록 아래와같이 실행
       const newCount = getCount()
       header.setState(newCount)
     }
@@ -58,6 +68,3 @@ function App() {
 
 }
 
-
-
-new App()

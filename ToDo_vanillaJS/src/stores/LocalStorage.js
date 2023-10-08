@@ -2,46 +2,46 @@ function setList(text) {
   // key로 사용할 현재 시간을 만듬
   const key = new Date()
   // 새로운 리스트를 생성함
-  const newList = { isComplete: false, text, key }
+  const newList = { isCompleted: false, text, key }
 
   // 기존의 데이터와 새로운 리스트를 한배열에 담고 JSON 파일형식으로 바꿔줌
   const lists = JSON.stringify([...getList(), newList])
   // localStorage에 담음
-  localStorage.setItem("lists", lists)
+  localStorage.setItem("TodoList", lists)
 
 }
 
 function getList() {
-  return JSON.parse(localStorage.getItem("lists")) ?? []
+  return JSON.parse(localStorage.getItem("TodoList")) ?? []
 }
 
 function getCount() {
   const data = getList()
-  const totalListsCount = data.length
-  const completeCount = data.filter((list) => list.isComplete).length
+  const totalCount = data.length
+  const completedCount = data.filter((list) => list.isCompleted).length
 
-  return { completeCount, totalListsCount }
+  return { completedCount, totalCount }
 }
 
 
 function removeList(key) {
   const filterd = [...getList()].filter((item) => item.key === key ? false : true)
-  localStorage.setItem("lists", JSON.stringify(filterd))
+  localStorage.setItem("TodoList", JSON.stringify(filterd))
   return filterd
 }
 
 function changeComplete({ key: checkKey }) {
   const newState = getList().map((list) => {
-    let { isComplete, text, key } = list
+    let { isCompleted, text, key } = list
 
     if (key === checkKey) {
-      isComplete = !isComplete
+      isCompleted = !isCompleted
     }
 
-    return { isComplete, text, key }
+    return { isCompleted, text, key }
   })
 
-  localStorage.setItem("lists", JSON.stringify(newState))
-  console.log(newState)
+  localStorage.setItem("TodoList", JSON.stringify(newState))
+
   return newState
 }

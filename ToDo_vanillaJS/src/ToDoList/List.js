@@ -1,18 +1,22 @@
-function List({ isComplete, text, key, onDelete, onCompleted }) {
+function List({ isCompleted, text, key, onDelete, onToggle }) {
   const listElement = document.createElement('li')
-  console.log(isComplete)
+
   // isComplete 관련
 
   const completeCheckBox = document.createElement('input')
   completeCheckBox.setAttribute("type", "checkbox")
   listElement.appendChild(completeCheckBox)
   completeCheckBox.addEventListener("click", () => {
-    onCompleted({ key, isComplete })
+    onToggle({ key, isCompleted })
   })
 
   const pElement = document.createElement("p")
   listElement.appendChild(pElement)
   pElement.textContent = text
+
+
+
+
 
   //  delete button
   const deleteButton = document.createElement('button')
@@ -24,7 +28,12 @@ function List({ isComplete, text, key, onDelete, onCompleted }) {
     onDelete({ deleteTarget })
   })
 
-  if (isComplete) {
+
+
+
+
+
+  if (isCompleted) {
     completeCheckBox.setAttribute("checked", "true")
     pElement.style.textDecoration = "line-through"
   }

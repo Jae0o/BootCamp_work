@@ -11,6 +11,8 @@ function Header({ target, state }) {
   }
 
   new Title({ target: headerElement })
+
+
   const listCount = new ListCounter({
     target: headerElement,
     count: state

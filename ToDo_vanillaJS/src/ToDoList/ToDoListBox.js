@@ -1,7 +1,8 @@
 function ToDoListBox({ target, state, onEvent }) {
+
   const ulElement = document.createElement("ul")
   target.appendChild(ulElement)
-  console.log(state)
+
   this.listData = state
 
 
@@ -25,16 +26,16 @@ function ToDoListBox({ target, state, onEvent }) {
     // 렌더링 시작시 현재 주어진 list 데이터들과 List component를 이용해 
     // ListElement들을 만들고 배열에 담음
     const listElements = [...this.listData.map((list) => {
-      const isComplete = list.isComplete
+      const isCompleted = list.isCompleted
       const text = list.text
       const key = list.key
 
       return new List({
-        isComplete,
+        isCompleted,
         text,
         key,
-        onDelete: (lists) => this.setEvent(lists),
-        onCompleted: (target) => this.setEvent(target)
+        onDelete: (list) => this.setEvent(list),
+        onToggle: (target) => this.setEvent(target)
 
       })
     })]

@@ -1,3 +1,4 @@
+// 제목을 위한 component
 function Title({ target }) {
   if (!new.target) {
     throw Error("생성자 함수에 new 기재 안함!")

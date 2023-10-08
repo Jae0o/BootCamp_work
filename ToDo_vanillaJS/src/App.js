@@ -1,6 +1,7 @@
 // App 앱 전체에 어떤 component 들이 다루어지는지
 
 function App({ target }) {
+  // 생성자 함수호출시 new 미기재를 방지하기 위한 코드
   if (!new.target) {
     throw Error("생성자 함수에 new 기재 안함!")
   }
@@ -53,9 +54,10 @@ function App({ target }) {
   })
 
 
-
+  // form / input 관련 footer 생성자 함수 호출
   new Footer({
     target: appElement,
+    // 만약 submit Event 가 발생했을때의 처리를 위한 함수
     onSubmit: (text) => {
       // 전달받은 text 를 통해 새로운 list 생성
       setList(text)

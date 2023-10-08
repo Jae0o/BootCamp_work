@@ -1,15 +1,8 @@
 // App 앱 전체에 어떤 component 들이 다루어지는지
 
-function App({ target, state }) {
-  const appElement = document.createElement("div")
-  const parentNode = target
-  parentNode.appendChild(appElement);
+function App() {
 
-  this.render = function () {
-
-    new Header({ target: appElement, state });
-
-    new Footer({ target: appElement })
+  const appElement = document.querySelector("#App")
 
 
 
@@ -17,9 +10,30 @@ function App({ target, state }) {
 
 
 
+  const header = new Header({
+    target: appElement,
+  });
 
 
-  }
 
-  this.render();
+  const todoList = new ToDoListBox({
+    target: appElement
+  })
+
+  new Footer({
+    target: appElement,
+    onSubmit: (text) => {
+      setItem(text)
+      const newState = getItem()
+      todoList.setSate(newState)
+      header.setState()
+      getCount()
+    }
+  })
 }
+
+
+
+new App()
+
+

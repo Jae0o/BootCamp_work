@@ -3,8 +3,4 @@ function InputText({ target }) {
   target.appendChild(inputElement)
   inputElement.setAttribute("class", "footer_input")
   inputElement.setAttribute("type", "text")
-
-  inputElement.addEventListener("submit", (e) => {
-    console.log(e)
-  })
 }

@@ -4,8 +4,5 @@ function SubmitButton({ target }) {
   buttonElement.textContent = "Submiit"
   target.appendChild(buttonElement)
 
-  buttonElement.addEventListener("submit", (e) => {
-    e.preventDefault()
-    console.log(e)
-  })
+
 }

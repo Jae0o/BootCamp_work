@@ -1,4 +1,4 @@
-function List({ isComplete, text, index }) {
+function List({ isComplete, text, key, onDelete }) {
   const listElement = document.createElement('li')
 
   const completeButton = document.createElement('button')
@@ -8,8 +8,14 @@ function List({ isComplete, text, index }) {
   listElement.appendChild(pElement)
   pElement.textContent = text
 
+  //  delete button
   const deleteButton = document.createElement('button')
   listElement.appendChild(deleteButton)
+  deleteButton.textContent = "Delete"
+
+  deleteButton.addEventListener('click', () => {
+    onDelete({ key })
+  })
 
   return listElement
 }

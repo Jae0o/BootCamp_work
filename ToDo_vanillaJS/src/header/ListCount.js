@@ -1,15 +1,14 @@
-function ListCounter({ target }) {
+function ListCounter({ target, count }) {
   const pElement = document.createElement("p");
   target.appendChild(pElement);
   pElement.setAttribute("class", "header_listCounter")
 
-  let { totalListsCount, completeCount } = getCount()
+  let { totalListsCount, completeCount } = count
 
-  this.setCount = () => {
-    const {
-      totalListsCount: newTotalListsCount,
-      completeCount: newCompleteCount
-    } = getCount()
+  this.Refresh = ({
+    totalListsCount: newTotalListsCount,
+    completeCount: newCompleteCount
+  }) => {
 
     totalListsCount = newTotalListsCount
     completeCount = newCompleteCount

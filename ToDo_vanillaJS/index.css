@@ -1,23 +1,24 @@
 /* TodoList */
 
 #listBox {
-  border: 1px solid red;
-
-  width: 360px;
+  width: 400px;
   height: 400px;
 
   display: flex;
   flex-direction: column;
   align-items: center;
 
+
+  overflow-y: scroll;
+
   background-color: var(--color-white);
 
 }
 
 .listBox_list {
-  border: 1px black solid;
-
-  width: 320;
+  border: var(--color-orange) 1px solid;
+  border-radius: var(--border-radius-medium);
+  width: 380;
   height: 40px;
   margin-top: 8px;
 
@@ -26,21 +27,99 @@
   align-items: center;
 }
 
+.listBox_list_checkBox {
+  border: 1px red solid;
+  margin-left: 8px;
+  height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.listBox_list_checkBox_input {
+  display: none;
+}
+
+.listBox_list_checkBox_label {
+  cursor: pointer;
+  width: 72px;
+  height: 28px;
+  margin-left: 8px;
+
+  background-color: var(--color-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 4px;
+
+  font-size: var(--font-size-semi-large);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-beige);
+
+  border-radius: var(--border-radius-semi-medium);
+}
+
+.listBox_list_checkBox_input+.listBox_list_checkBox_label::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  position: relative;
+  bottom: 2px;
+  background-color: var(--color-white);
+
+}
+
+.listBox_list_checkBox_input:checked+.listBox_list_checkBox_label::before {
+  background-color: #321313;
+}
+
+.listBox_list_text {
+  font-size: var(--font-size-medium);
+}
+
 .listBox_list_deleteButton {
   height: 28px;
   margin-right: 8px;
-
+  font-size: var(--font-size-semi-large);
   background-color: var(--color-orange);
   color: var(--color-beige);
-  font-weight: 600;
-  border-radius: var(--border-radius-medium)
+  font-weight: var(--font-weight-semi-bold);
+  border-radius: var(--border-radius-semi-medium)
 }
-
 
 
 
 /* ---------------------------------------------------------- */
 
+
+
+
+:root {
+
+  /* color */
+  --color-white: #F9F5F0;
+  --color-beige: #F2EAD3;
+  --color-orange: #F4991A;
+  --color-deepbrown: #321313;
+
+  /* font weight */
+  --font-weight-bold: 800;
+  --font-weight-semi-bold: 600;
+  --font-weight-regular: 400;
+
+  /* font size */
+
+  --font-size-semi-large: 16px;
+  --font-size-medium: 13px;
+
+
+  /* border-radius */
+  --border-radius-medium: 8px;
+  --border-radius-semi-medium: 4px;
+}
 
 * {
   box-sizing: border-box;
@@ -58,11 +137,6 @@ Body {
   margin: 0;
 }
 
-h3 {
-  /* margin: 0px; */
-  /* padding: 0px; */
-}
-
 button {
   background-color: transparent;
   cursor: pointer;
@@ -70,25 +144,7 @@ button {
   outline: none;
 }
 
-:root {
-
-  /* color */
-  --color-white: #F9F5F0;
-  --color-beige: #F2EAD3;
-  --color-orange: #F4991A;
-  --color-deepbrown: #321313;
-
-  /* font weight */
-  --font-weight-bold: 800;
-  --font-weight-semi-bod: 600;
-  --font-weight-regular: 400;
-
-  /* font size */
-
-
-
-
-
-  /* border-radius */
-  --border-radius-medium: 8px
+label {
+  padding: 0px;
+  margin: 0px;
 }

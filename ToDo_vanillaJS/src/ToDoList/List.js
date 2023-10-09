@@ -9,22 +9,21 @@ function List({ isCompleted, index, text, key, onClick }) {
 
   /* isCompleted 관련 부분 */
 
-  const checkboxElement = document.createElement("div")
-  listElement.appendChild(checkboxElement)
-  checkboxElement.setAttribute('class', 'listBox_list_checkBox')
-
   // input type = checkbox 태그를 만들고 li에 append
   const inputElement = document.createElement('input')
   inputElement.setAttribute("type", "checkbox")
   inputElement.setAttribute('class', "listBox_list_checkBox_input")
+  // label 지정을 위해 id 지정
   inputElement.setAttribute('id', `checkbox${index}`)
-  checkboxElement.appendChild(inputElement)
+  // checkboxElement.appendChild(inputElement)
+  listElement.appendChild(inputElement)
 
+  // label 태그 생성과 해당 label을 input과 이어주기 위해 작업
   const labelElement = document.createElement("label")
   labelElement.textContent = "ToDo"
   labelElement.setAttribute('class', "listBox_list_checkBox_label")
   labelElement.setAttribute('for', `checkbox${index}`)
-  checkboxElement.appendChild(labelElement)
+  listElement.appendChild(labelElement)
 
   // checkbox에 이벤트리스너를 할당함
   inputElement.addEventListener("click", () => {

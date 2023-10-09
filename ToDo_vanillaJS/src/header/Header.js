@@ -7,7 +7,7 @@ function Header({ target, state }) {
   // header 태그의 생성과 전달받은 app 요소로 append 함!
   const headerElement = document.createElement("header")
   target.appendChild(headerElement)
-  headerElement.setAttribute("class", "header")
+  headerElement.setAttribute("id", "header")
 
   // 상태의 변화에따른 동작을 다룸
   this.setState = (newState) => {

@@ -63,6 +63,8 @@ function List({ isCompleted, index, text, key, onClick }) {
     inputElement.setAttribute("checked", "true")
     // text에 삭선 긋기!
     pElement.style.textDecoration = "line-through"
+    pElement.style.textDecorationColor = "#F4991A"
+    pElement.style.textDecorationThickness = "2px"
   }
 
   return listElement

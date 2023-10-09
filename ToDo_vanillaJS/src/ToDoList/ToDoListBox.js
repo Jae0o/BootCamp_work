@@ -6,7 +6,7 @@ function ToDoListBox({ target, state, onEvent }) {
   // list 들을 담을 ul 태그를 생성하고 app 에 append함!
   const ulElement = document.createElement("ul")
   target.appendChild(ulElement)
-  ulElement.setAttribute("id", "listBox")
+  ulElement.setAttribute("class", "listBox")
 
   // 전달받은 list들을 담음
   this.listData = state

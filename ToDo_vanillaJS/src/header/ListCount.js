@@ -6,7 +6,7 @@ function ListCounter({ target, count }) {
   // p 태그 생성과 header 태그에 append 해줌
   const pElement = document.createElement("p");
   target.appendChild(pElement);
-  pElement.setAttribute("id", "header_listCounter")
+  pElement.setAttribute("class", "header_listCounter")
 
   // count 매개변수안에 들어있는 total / completd 갯수를 담음!
   this.totalCount = count.totalCount

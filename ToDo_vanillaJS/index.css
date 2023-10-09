@@ -3,7 +3,7 @@ body {
   background-color: var(--color-white);
 }
 
-#App {
+.App {
   margin: 40px;
   width: 420px;
   display: flex;
@@ -14,7 +14,7 @@ body {
 
 /* Header */
 
-#header {
+.header {
   width: 400px;
   display: flex;
   flex-direction: column;
@@ -24,7 +24,7 @@ body {
   box-shadow: var(--box-shadow);
 }
 
-#header_title {
+.header_title {
   padding: 4px;
   font-size: var(--font-size-large);
   font-weight: var(--font-weight-bold);
@@ -33,7 +33,7 @@ body {
   justify-content: center;
 }
 
-#header_listCounter {
+.header_listCounter {
   padding: 4px;
   font-size: var(--font-size-semi-large);
   font-weight: var(--font-weight-bold);
@@ -42,9 +42,13 @@ body {
   justify-content: center;
 }
 
+/* Navbar */
+
+
+
 /* TodoList */
 
-#listBox {
+.listBox {
   width: 400px;
   height: 400px;
   display: flex;

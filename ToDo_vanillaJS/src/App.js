@@ -9,10 +9,13 @@ function App({ target }) {
   // app Element 생성과 target 연결 그리고 id 속성 부여
   const appElement = document.createElement("div")
   target.appendChild(appElement)
-  appElement.setAttribute("id", "app")
+  appElement.setAttribute("class", "app")
 
+  // App을 처음 호출할때 현재 저장된 darkmode의 값을 찾아 변수에 담음
   const darkmodeState = getDarkMode()
+  // 만약 현재 다크모드가 on 이라면 해당 함수를 호출함!
   if (darkmodeState) {
+    // 해당 함수는 html에 class = dark를 부여함
     darkmodeToggle(darkmodeState)
   }
 
@@ -27,19 +30,27 @@ function App({ target }) {
     state: listsCount
   });
 
-  // Darkmode / 모든 리스트를 삭제하기 위한 버튼
+  // Darkmode / 모든 리스트를 삭제하기 위한 버튼들이 담긴 navbar
   const navbar = new Navbar({
     target: appElement,
     onEvent: (params) => {
+      // 버튼이 클릭되면 어떤 이벤트 인지에따라 각각의 함수를 호출!
       if (params.darkmodeToggle) {
+        // 다크모드라면 현재의 다크모드값을 바꿔주고 변수에 담음
         const darkmodeState = setDarkMode()
+        // 해당 변수의 현재 다크모드 값을 넣어주고 html에 class=dark 부여!
         darkmodeToggle(darkmodeState)
       }
 
+      // 전체 삭제시 실행됨!
       if (params.deleteAll) {
+        // 전체를 삭제하고 빈 배열을 받음!
         const newState = deleteAll()
+        // 그리고 list를 다시 Rendering 진행
         todoList.setState(newState)
+        // list가 변환된후의 count를 받아옴!
         const newCount = getCount()
+        // header의 rerendering 실행
         header.setState(newCount)
       }
     }

@@ -12,11 +12,11 @@ function App({ target }) {
   appElement.setAttribute("class", "app")
 
   // App을 처음 호출할때 현재 저장된 darkmode의 값을 찾아 변수에 담음
-  const darkmodeState = getDarkMode()
+  const isDark = getDarkMode()
   // 만약 현재 다크모드가 on 이라면 해당 함수를 호출함!
-  if (darkmodeState) {
+  if (isDark) {
     // 해당 함수는 html에 class = dark를 부여함
-    darkmodeToggle(darkmodeState)
+    darkmodeToggle(isDark)
   }
 
   // 맨처음 rendering 되는 순간 list 들을 담은 state
@@ -37,9 +37,9 @@ function App({ target }) {
       // 버튼이 클릭되면 어떤 이벤트 인지에따라 각각의 함수를 호출!
       if (params.darkmodeToggle) {
         // 다크모드라면 현재의 다크모드값을 바꿔주고 변수에 담음
-        const darkmodeState = setDarkMode()
+        const isDark = setDarkMode()
         // 해당 변수의 현재 다크모드 값을 넣어주고 html에 class=dark 부여!
-        darkmodeToggle(darkmodeState)
+        darkmodeToggle(isDark)
       }
 
       // 전체 삭제시 실행됨!

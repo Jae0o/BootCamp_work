@@ -31,9 +31,16 @@ function App({ target }) {
   const navbar = new Navbar({
     target: appElement,
     onEvent: (params) => {
-      if (params.isDarkMode) {
+      if (params.darkmodeToggle) {
         const darkmodeState = setDarkMode()
         darkmodeToggle(darkmodeState)
+      }
+
+      if (params.deleteAll) {
+        const newState = deleteAll()
+        todoList.setState(newState)
+        const newCount = getCount()
+        header.setState(newCount)
       }
     }
   })

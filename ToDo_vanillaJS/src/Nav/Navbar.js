@@ -10,9 +10,12 @@ function Navbar({ target, onEvent }) {
   this.render = function () {
     new DarkMode({
       target: navElement,
-      onEvent: function (params) {
-        onEvent(params)
-      }
+      onEvent
+    })
+
+    new DeleteAll({
+      target: navElement,
+      onEvent
     })
   }
 

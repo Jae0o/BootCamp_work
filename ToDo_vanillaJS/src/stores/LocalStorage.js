@@ -45,3 +45,8 @@ function changeComplete({ key: checkKey }) {
 
   return newState
 }
+
+function deleteAll() {
+  localStorage.setItem("TodoList", JSON.stringify([]))
+  return [];
+}

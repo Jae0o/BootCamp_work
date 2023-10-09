@@ -11,6 +11,11 @@ function App({ target }) {
   target.appendChild(appElement)
   appElement.setAttribute("id", "app")
 
+  const darkmodeState = getDarkMode()
+  if (darkmodeState) {
+    darkmodeToggle(darkmodeState)
+  }
+
   // 맨처음 rendering 되는 순간 list 들을 담은 state
   // list들의 총 갯수 / 완료된 리스트 갯수 를 담은 listCount 변수 생성
   const state = getList()
@@ -21,6 +26,17 @@ function App({ target }) {
     target: appElement,
     state: listsCount
   });
+
+  // Darkmode / 모든 리스트를 삭제하기 위한 버튼
+  const navbar = new Navbar({
+    target: appElement,
+    onEvent: (params) => {
+      if (params.isDarkMode) {
+        const darkmodeState = setDarkMode()
+        darkmodeToggle(darkmodeState)
+      }
+    }
+  })
 
   // list 들을 담을 todoList component 호출 target 은 app
   const todoList = new ToDoListBox({
@@ -52,7 +68,6 @@ function App({ target }) {
       header.setState(newCount)
     }
   })
-
 
   // form / input 관련 footer 생성자 함수 호출
   new Form({

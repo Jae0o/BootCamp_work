@@ -1,4 +1,7 @@
 /* App */
+body {
+  background-color: var(--color-white);
+}
 
 #App {
   margin: 40px;
@@ -99,13 +102,13 @@
   margin-right: 8px;
   position: relative;
   bottom: 2px;
-  background-color: var(--color-white);
+  background-color: #F9F5F0;
   border-radius: var(--border-radius-semi-medium);
 
 }
 
 .listBox_list_checkBox_input:checked+.listBox_list_checkBox_label::before {
-  background-color: var(--color-deepbrown);
+  background-color: #321313;
 }
 
 .listBox_list_text {
@@ -115,6 +118,7 @@
   font-size: var(--font-size-medium);
   font-weight: var(--font-weight-semi-bold);
   text-decoration-color: var(--color-orange);
+  color: var(--color-black);
 }
 
 .listBox_list_deleteButton {
@@ -141,10 +145,12 @@
   border: none;
   height: 28px;
   width: 240px;
+  background-color: var(--color-white);
+  color: var(--color-black);
 }
 
 .form_submitButton {
-  background-color: #F4991A;
+  background-color: var(--color-orange);
   height: 28px;
   padding: 0px 8px;
   font-size: var(--font-size-medium);
@@ -161,7 +167,7 @@
   --color-beige: #F2EAD3;
   --color-orange: #F4991A;
   --color-deepbrown: #321313;
-
+  --color-black: #000000;
   /* font weight */
   --font-weight-bold: 800;
   --font-weight-semi-bold: 600;
@@ -177,6 +183,14 @@
   /* border-radius */
   --border-radius-medium: 8px;
   --border-radius-semi-medium: 4px;
+}
+
+html.dark {
+  --color-white: #1A1A1A;
+  --color-beige: #F2EAD3;
+  --color-orange: #D17900;
+  --color-deepbrown: #F2EAD3;
+  --color-black: #F2EAD3;
 }
 
 * {

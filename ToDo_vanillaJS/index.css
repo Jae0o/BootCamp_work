@@ -1,0 +1,94 @@
+/* TodoList */
+
+#listBox {
+  border: 1px solid red;
+
+  width: 360px;
+  height: 400px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: var(--color-white);
+
+}
+
+.listBox_list {
+  border: 1px black solid;
+
+  width: 320;
+  height: 40px;
+  margin-top: 8px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.listBox_list_deleteButton {
+  height: 28px;
+  margin-right: 8px;
+
+  background-color: var(--color-orange);
+  color: var(--color-beige);
+  font-weight: 600;
+  border-radius: var(--border-radius-medium)
+}
+
+
+
+
+/* ---------------------------------------------------------- */
+
+
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  padding: 0px;
+}
+
+li {
+  list-style: none;
+}
+
+Body {
+  margin: 0;
+}
+
+h3 {
+  /* margin: 0px; */
+  /* padding: 0px; */
+}
+
+button {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+:root {
+
+  /* color */
+  --color-white: #F9F5F0;
+  --color-beige: #F2EAD3;
+  --color-orange: #F4991A;
+  --color-deepbrown: #321313;
+
+  /* font weight */
+  --font-weight-bold: 800;
+  --font-weight-semi-bod: 600;
+  --font-weight-regular: 400;
+
+  /* font size */
+
+
+
+
+
+  /* border-radius */
+  --border-radius-medium: 8px
+}

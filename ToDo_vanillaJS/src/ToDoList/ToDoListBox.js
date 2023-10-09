@@ -6,6 +6,7 @@ function ToDoListBox({ target, state, onEvent }) {
   // list 들을 담을 ul 태그를 생성하고 app 에 append함!
   const ulElement = document.createElement("ul")
   target.appendChild(ulElement)
+  ulElement.setAttribute("id", "listBox")
 
   // 전달받은 list들을 담음
   this.listData = state
@@ -31,7 +32,7 @@ function ToDoListBox({ target, state, onEvent }) {
 
     // 렌더링 시작시 현재 주어진 list 데이터들과 List component를 이용해 
     // ListElement들을 만들고 배열에 담음
-    const listElements = [...this.listData.map((list) => {
+    const listElements = [...this.listData.map((list, index) => {
       // list를 만들기 위해 필요한 data를 각각의 매개변수에 담음
       const isCompleted = list.isCompleted
       const text = list.text
@@ -39,6 +40,7 @@ function ToDoListBox({ target, state, onEvent }) {
 
       // map의 결과로 list component를 만들어 반환함
       return new List({
+        index,
         isCompleted,
         text,
         key,

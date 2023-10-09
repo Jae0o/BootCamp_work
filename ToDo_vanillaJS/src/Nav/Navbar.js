@@ -1,7 +1,8 @@
 function Navbar({ target, onEvent }) {
+  // 버튼들을 담을 nav 요소를 생성
   const navElement = document.createElement("nav")
   target.appendChild(navElement)
-  navElement.setAttribute('id', 'navbar')
+  navElement.setAttribute('class', 'navbar')
 
   this.render = function () {
     new DarkMode({

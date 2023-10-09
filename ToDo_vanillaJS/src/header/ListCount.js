@@ -12,17 +12,6 @@ function ListCounter({ target, count }) {
   this.totalCount = count.totalCount
   this.completedCount = count.completedCount
 
-  // refresh 가 선언되면 새롭게 전달받은 count 들을 기존의 변수에 재할당해줌
-  // this.refresh = ({
-  //   totalCount: newTotalCount,
-  //   completedCount: newCompletedCount
-  // }) => {
-  //   this.totalCount = newTotalCount
-  //   this.completedCount = newCompletedCount
-
-  //   this.render()
-  // }
-
   // rendering 될때 아래의 text로 p태그의 텍스트 노드에 할당!
   this.render = function () {
     pElement.textContent = `total list : ${this.totalCount} / completed list : ${this.completedCount}`

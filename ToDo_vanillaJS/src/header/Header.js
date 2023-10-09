@@ -11,6 +11,7 @@ function Header({ target, state }) {
 
   // 상태의 변화에따른 동작을 다룸
   this.setState = (newState) => {
+    // 다시 render 가 진행될때 새로 받은 state를 전달해줌
     this.render(newState)
   }
 

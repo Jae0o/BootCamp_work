@@ -44,7 +44,23 @@ body {
 
 /* Navbar */
 
+.navbar {
+  align-self: flex-end;
+  height: 28px;
+  margin-bottom: 16px;
+}
 
+.navbar_darkmodeButton,
+.navbar_deleteAllButton {
+  background-color: var(--color-orange);
+  height: 28px;
+  border-radius: var(--border-radius-semi-medium);
+  font-size: var(--font-size-semi-large);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-beige);
+  box-shadow: var(--box-shadow);
+  margin-right: 8px;
+}
 
 /* TodoList */
 

@@ -3,7 +3,7 @@ function DeleteAll({ target, onEvent }) {
   // button 요소 생성
   const buttonElement = document.createElement('button')
   target.appendChild(buttonElement)
-  buttonElement.setAttribute('class', 'navbar_deleteAll')
+  buttonElement.setAttribute('class', 'navbar_deleteAllButton')
   buttonElement.textContent = "Delete All"
 
   // click 이벤트 발생시 사용자에게 정말 삭제할지 확인을 위한 메세지 전송

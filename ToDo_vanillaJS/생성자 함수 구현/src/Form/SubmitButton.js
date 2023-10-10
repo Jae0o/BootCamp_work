@@ -7,6 +7,4 @@ function SubmitButton({ target }) {
   buttonElement.setAttribute('class', "form_submitButton")
   buttonElement.textContent = "Submiit"
   target.appendChild(buttonElement)
-
-
 }

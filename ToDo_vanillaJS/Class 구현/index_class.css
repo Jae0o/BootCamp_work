@@ -3,7 +3,7 @@ body {
   background-color: var(--color-white);
 }
 
-.App {
+.app {
   margin: 40px;
   width: 420px;
   display: flex;
@@ -80,20 +80,12 @@ body {
 .listBox_list {
   border: var(--color-orange) 1px solid;
   border-radius: var(--border-radius-medium);
-  width: 380;
+  width: 380px;
   height: 40px;
   margin-top: 8px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.listBox_list_checkBox {
-  margin-left: 8px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .listBox_list_checkBox_input {
@@ -183,14 +175,16 @@ body {
 
 /* ---------------------------------------------------------- */
 
+/* 생성자 함수 에서 그대로 가져온 CSS라 시간상 색상이름을 변경하지 못했습니다 ㅠ */
 :root {
 
   /* color */
-  --color-white: #F9F5F0;
-  --color-beige: #F2EAD3;
-  --color-orange: #F4991A;
+  --color-white: #FFFFFF;
+  --color-beige: #000000;
+  --color-orange: #87CEEB;
   --color-deepbrown: #321313;
   --color-black: #000000;
+
   /* font weight */
   --font-weight-bold: 800;
   --font-weight-semi-bold: 600;
@@ -215,10 +209,9 @@ body {
 html.dark {
   --color-white: #1A1A1A;
   --color-beige: #F2EAD3;
-  --color-orange: #D17900;
+  --color-orange: #5CACEE;
   --color-deepbrown: #F2EAD3;
   --color-black: #F2EAD3;
-
   --box-shadow: none;
 }
 

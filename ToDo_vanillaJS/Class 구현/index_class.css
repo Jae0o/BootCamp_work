@@ -3,7 +3,7 @@ body {
   background-color: var(--color-white);
 }
 
-.app1 {
+.app {
   margin: 40px;
   width: 420px;
   display: flex;
@@ -14,7 +14,7 @@ body {
 
 /* Header */
 
-.header1 {
+.header {
   width: 400px;
   display: flex;
   flex-direction: column;
@@ -24,7 +24,7 @@ body {
   box-shadow: var(--box-shadow);
 }
 
-.header_title1 {
+.header_title {
   padding: 4px;
   font-size: var(--font-size-large);
   font-weight: var(--font-weight-bold);
@@ -33,7 +33,7 @@ body {
   justify-content: center;
 }
 
-.header_listCounter1 {
+.header_listCounter {
   padding: 4px;
   font-size: var(--font-size-semi-large);
   font-weight: var(--font-weight-bold);
@@ -44,14 +44,14 @@ body {
 
 /* Navbar */
 
-.navbar1 {
+.navbar {
   align-self: flex-end;
   height: 28px;
   margin-bottom: 16px;
 }
 
-.navbar_darkmodeButton1,
-.navbar_deleteAllButton1 {
+.navbar_darkmodeButton,
+.navbar_deleteAllButton {
   background-color: var(--color-orange);
   height: 28px;
   border-radius: var(--border-radius-semi-medium);
@@ -64,7 +64,7 @@ body {
 
 /* TodoList */
 
-.listBox1 {
+.listBox {
   width: 400px;
   height: 400px;
   display: flex;
@@ -77,7 +77,7 @@ body {
   box-shadow: var(--box-shadow);
 }
 
-.listBox_list1 {
+.listBox_list {
   border: var(--color-orange) 1px solid;
   border-radius: var(--border-radius-medium);
   width: 380px;
@@ -88,11 +88,11 @@ body {
   align-items: center;
 }
 
-.listBox_list_checkBox_input1 {
+.listBox_list_checkBox_input {
   display: none;
 }
 
-.listBox_list_checkBox_label1 {
+.listBox_list_checkBox_label {
   cursor: pointer;
   width: 72px;
   height: 28px;
@@ -108,7 +108,7 @@ body {
   border-radius: var(--border-radius-semi-medium);
 }
 
-.listBox_list_checkBox_input1+.listBox_list_checkBox_label1::before {
+.listBox_list_checkBox_input+.listBox_list_checkBox_label::before {
   content: "";
   display: inline-block;
   width: 16px;
@@ -121,11 +121,11 @@ body {
 
 }
 
-.listBox_list_checkBox_input1:checked+.listBox_list_checkBox_label1::before {
+.listBox_list_checkBox_input:checked+.listBox_list_checkBox_label::before {
   background-color: #321313;
 }
 
-.listBox_list_text1 {
+.listBox_list_text {
   height: 40px;
   display: flex;
   align-items: center;
@@ -135,7 +135,7 @@ body {
   color: var(--color-black);
 }
 
-.listBox_list_deleteButton1 {
+.listBox_list_deleteButton {
   width: 60px;
   height: 28px;
   margin-right: 8px;
@@ -149,14 +149,14 @@ body {
 
 /*  Form */
 
-.form1 {
+.form {
   border: 4px solid var(--color-orange);
   border-radius: var(--border-radius-semi-medium);
   margin-top: 16px;
   box-shadow: var(--box-shadow);
 }
 
-.form_input1 {
+.form_input {
   border: none;
   height: 28px;
   width: 240px;
@@ -164,7 +164,7 @@ body {
   color: var(--color-black);
 }
 
-.form_submitButton1 {
+.form_submitButton {
   background-color: var(--color-orange);
   height: 28px;
   padding: 0px 8px;
@@ -206,7 +206,7 @@ body {
   ;
 }
 
-html.dark1 {
+html.dark {
   --color-white: #1A1A1A;
   --color-beige: #F2EAD3;
   --color-orange: #5CACEE;

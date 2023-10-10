@@ -3,7 +3,7 @@ import NavButton from "./NavButton_class.js";
 export default class Navbar {
   constructor({ target, onEvent }) {
     this.navElement = document.createElement('nav');
-    this.navElement.setAttribute('class', 'navbar')
+    this.navElement.setAttribute('class', 'navbarA')
     target.appendChild(this.navElement)
     this.onEvent = onEvent
 
@@ -16,14 +16,14 @@ export default class Navbar {
     new NavButton({
       target: this.navElement,
       purpose: 'DarkMode',
-      className: "navbar_darkmodeButton",
+      className: "navbar_darkmodeButtonA",
       onEvent: (params) => this.onEvent(params)
     })
 
     new NavButton({
       target: this.navElement,
       purpose: "DeleteAll",
-      className: "navbar_deleteAllButton",
+      className: "navbar_deleteAllButtonA",
       onEvent: (params) => this.onEvent(params)
     })
   }

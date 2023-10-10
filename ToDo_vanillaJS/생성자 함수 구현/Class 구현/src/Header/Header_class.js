@@ -4,7 +4,7 @@ import Title from "./Title_class.js";
 export default class Header {
   constructor({ target, count }) {
     this.headerElement = document.createElement('header');
-    this.headerElement.setAttribute("class", "header")
+    this.headerElement.setAttribute("class", "headerA")
     target.appendChild(this.headerElement)
 
     this.state = count

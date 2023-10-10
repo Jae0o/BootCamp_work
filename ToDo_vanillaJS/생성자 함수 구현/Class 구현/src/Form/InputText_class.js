@@ -3,7 +3,7 @@ export default class InputText {
 
     this.inputElement = document.createElement('input')
     this.inputElement.setAttribute('type', 'text')
-    this.inputElement.setAttribute('class', 'form_input')
+    this.inputElement.setAttribute('class', 'form_inputA')
     target.appendChild(this.inputElement)
   }
 }

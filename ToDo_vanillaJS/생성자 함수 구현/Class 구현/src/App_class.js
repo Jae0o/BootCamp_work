@@ -9,7 +9,7 @@ export default class App {
   constructor({ target }) {
     this.appElement = document.createElement('div');
     target.appendChild(this.appElement)
-    this.appElement.setAttribute('class', 'app')
+    this.appElement.setAttribute('class', 'appA')
 
     this.state = getList()
     const Listcount = getCount()

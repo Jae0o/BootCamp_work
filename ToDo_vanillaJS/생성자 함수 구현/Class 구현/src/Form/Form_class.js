@@ -4,7 +4,7 @@ import SubmitButton from "./submitButton_class.js"
 export default class Form {
   constructor({ target, onSubmit }) {
     this.formElement = document.createElement('form')
-    this.formElement.setAttribute('class', 'form')
+    this.formElement.setAttribute('class', 'formA')
     target.appendChild(this.formElement)
 
     const inputElement = new InputText({ target: this.formElement })
@@ -13,7 +13,7 @@ export default class Form {
     this.formElement.addEventListener('submit', (e) => {
       e.preventDefault()
 
-      const inputElement = document.querySelector('.form_input');
+      const inputElement = document.querySelector('.form_inputA');
       const newText = inputElement.value;
 
       if (newText !== 0 && !newText) {

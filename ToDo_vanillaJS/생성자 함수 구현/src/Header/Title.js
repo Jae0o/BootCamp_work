@@ -7,6 +7,6 @@ function Title({ target }) {
   const h3Element = document.createElement("h3");
   target.appendChild(h3Element);
 
-  h3Element.textContent = "Jae0's Todo List"
+  h3Element.textContent = "Jae0's Todo List - 생성자 함수 사용 버전"
   h3Element.setAttribute("class", "header_title")
 }

@@ -1,6 +1,9 @@
 /* App */
 body {
   background-color: var(--color-white);
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .app {

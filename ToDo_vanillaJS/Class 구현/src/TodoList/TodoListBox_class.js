@@ -4,7 +4,7 @@ export default class TodoListBox {
   constructor({ target, state, onEvent }) {
     this.ulElement = document.createElement('ul');
     target.appendChild(this.ulElement)
-    this.ulElement.setAttribute('class', 'listBox')
+    this.ulElement.setAttribute('class', 'listBoxA')
 
     this.listData = state
     this.onEvent = onEvent

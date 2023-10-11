@@ -31,7 +31,7 @@ export default function ProductOptions({ target, state, onSelect }) {
   selectElement.addEventListener('change', (e) => {
     const optionID = parseInt(e.target.value)
 
-    const option = this.state.find(option => option.id === optionID)
+    const option = this.state.find(option => option.optionId === optionID)
     onSelect(option)
   })
 
@@ -41,7 +41,7 @@ export default function ProductOptions({ target, state, onSelect }) {
       selectElement.innerHTML = `
       <option> 선택하기 </option>
       ${this.state.map(option =>
-        `<option ${option.stock === 0 ? "disabled" : ""} value="${option.id}">${createOptionFullName(option)}</option>`
+        `<option ${option.stock === 0 ? "disabled" : ""} value="${option.optionId}">${createOptionFullName(option)}</option>`
       ).join("")}
       `
     }

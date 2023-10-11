@@ -12,16 +12,18 @@ export default class App {
     this.appElement.setAttribute('class', 'app')
 
     this.state = getList()
-    const Listcount = getCount()
+    this.Listcount = getCount()
     const isDark = getDarkmode()
     darkmodeToggle(isDark)
 
-    console.log(isDark)
+    this.render()
+  }
 
 
+  render() {
     const header = new Header({
       target: this.appElement,
-      count: Listcount
+      count: this.Listcount
     });
 
     const navbar = new Navbar({

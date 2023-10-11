@@ -16,7 +16,6 @@ export default class App {
     const isDark = getDarkmode()
     darkmodeToggle(isDark)
 
-    console.log(isDark)
 
 
     const header = new Header({

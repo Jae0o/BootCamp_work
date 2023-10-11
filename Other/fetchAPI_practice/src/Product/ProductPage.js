@@ -2,11 +2,13 @@
 // {
 //   productId : n,
 //   product : "",
-//   optionData : []
+//   optionData : [],
+//   selectedOption : []
 // }
 
 import ProductOptions from "./ProductOptions.js"
 import { requestAPI } from "../API/FetchApi.js";
+import Cart from "../Cart.js";
 
 
 export default function ProductPage({
@@ -20,10 +22,40 @@ export default function ProductPage({
   const productOptions = new ProductOptions({
     target: productElement,
     state: [],
-    onSelect: (res) => console.log(res)
+    onSelect: (option) => {
+      const nextState = { ...this.state }
+      const { selectedOptions } = this.state
+      const selectedOptionIndex = selectedOptions.findIndex(seleted => seleted.optionId === option.optionId)
+      if (selectedOptionIndex > -1) {
+        nextState.selectedOptions[selectedOptionIndex].ea++
+      } else {
+        nextState.selectedOptions.push({
+          optionId: option.optionId,
+          optionName: option.optionName,
+          optionPrice: option.optionPrice,
+          ea: 1
+        })
+      }
+      this.setState(nextState)
+    }
   })
 
+  const cart = new Cart({
+    target: productElement,
+    state: {
+      productName: "",
+      basePrice: 0,
+      selectedOptions: [
 
+      ]
+
+    },
+    onRemove: (index) => {
+      const nextState = { ...this.state }
+      nextState.selectedOptions.splice(index, 1)
+      this.setState(nextState)
+    }
+  })
 
 
   this.setState = (nextState) => {
@@ -33,12 +65,17 @@ export default function ProductPage({
     }
 
     this.state = nextState
-    productOptions.setState(this.state.optionData)
+
+    const { product, selectedOptions, optionData } = this.state;
+    productOptions.setState(optionData)
+    cart.setState({
+      productName: product.name,
+      basePrice: product.basePrice,
+      selectedOptions: selectedOptions
+    })
   }
 
-  this.render = () => {
-
-  }
+  this.render = () => { }
   this.render()
 
 
@@ -48,7 +85,8 @@ export default function ProductPage({
         this.setState({
           ...this.state,
           product,
-          optionData: []
+          optionData: [],
+          selectedOptions: []
         })
         return requestAPI(`/product-options?product.id=${product.id}`)
       })
@@ -66,7 +104,7 @@ export default function ProductPage({
           return {
             optionId: option.id,
             optionName: option.optionName,
-            optionPrice: option.price,
+            optionPrice: option.optionPrice,
             stock: stock
           }
         })
@@ -76,6 +114,7 @@ export default function ProductPage({
           optionData: optionData
         })
         productOptions.setState(optionData)
+
       })
   }
 

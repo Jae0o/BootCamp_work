@@ -3,8 +3,15 @@ export default function Header({ target, state }) {
   target.appendChild(headerElement)
   this.state = state
 
+  this.setState = (newState) => {
+    this.state = newState
+    this.render()
+  }
+
   this.render = () => {
-    headerElement.innerHTML = `${this.state} 의 Todo`
+    const { isLoading, username } = this.state
+    headerElement.innerHTML = `${username} 의 Todo ${isLoading ? "로딩중입니다" : ""}`
+
 
   }
 

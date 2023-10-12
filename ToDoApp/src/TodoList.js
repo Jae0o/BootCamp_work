@@ -13,12 +13,7 @@ export default function TodoList({ target, state, onToggle, onRemove }) {
   this.render = () => {
     const { isLoading, todos } = this.state
 
-    if (isLoading) {
-      todoElement.innerHTML = "isLoading!"
-      return
-    }
-
-    if (this.state.length === 0) {
+    if (!isLoading && this.state.length === 0) {
       todoElement.innerHTML = "none"
       return
     }
@@ -42,12 +37,9 @@ export default function TodoList({ target, state, onToggle, onRemove }) {
         const { className } = e.target
         if (className === 'removeButton') {
           onRemove(id)
+          return
         }
-
-        if (className === 'todo_item') {
-          onToggle(id)
-        }
-
+        onToggle(id)
       }
 
     })

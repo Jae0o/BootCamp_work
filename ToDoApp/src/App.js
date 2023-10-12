@@ -19,23 +19,37 @@ export default function App({ target, state }) {
       todos: newState.todos,
       isLoading: this.state.isLoading
     })
+    header.setState({
+      isLoading: this.state.isLoading,
+      username: this.state.username
+    })
   }
 
 
 
-  new Header({
+  const header = new Header({
     target: appElement,
-    state: this.state?.username
+    state: {
+      isLoading: this.state.isLoading,
+      username: this.state.username
+    }
   })
 
   const todoList = new TodoList({
     target: appElement,
     state: this.state.todos,
-    onRemove: (id) => {
-      console.log(id)
+    onRemove: async (id) => {
+      await requset(`/${this.state.username}/${id}`, {
+        method: "DELETE"
+      })
+      await fetchTodo()
     },
-    onToggle: (id) => {
-      console.log(id)
+    onToggle: async (id) => {
+      const { username } = this.state
+      await requset(`/${username}/${id}/toggle`, {
+        method: "PUT"
+      })
+      await fetchTodo()
     }
   })
 
@@ -58,6 +72,7 @@ export default function App({ target, state }) {
         ]
       })
       // ... 여기까지 낙관적 업데이트
+      // but 현재는 의미없는 부분! 왜냐면 loading 구현으로 인해 의미없게 로딩이 구현됨
 
       const { username } = this.state
       console.log(content)
@@ -80,7 +95,7 @@ export default function App({ target, state }) {
         ...this.state,
         isLoading: true
       })
-      const todos = await requset(`/${username}?delay=3000`)
+      const todos = await requset(`/${username}`)
       this.setState({
         ...this.state,
         todos,

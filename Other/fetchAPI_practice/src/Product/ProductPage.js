@@ -80,6 +80,7 @@ export default function ProductPage({
 
 
   const optionData = (productId) => {
+    console.log(this.state)
     return requestAPI(`/products/${productId}`)
       .then(product => {
         this.setState({

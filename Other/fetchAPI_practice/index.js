@@ -5,6 +5,8 @@ const appElement = document.querySelector('#app');
 new ProductPage({
   target: appElement,
   state: {
-    productId: 1
+    productId: 1,
+    optionData: [],
+    selectedOptions: []
   }
 })

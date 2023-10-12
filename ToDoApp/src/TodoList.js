@@ -4,12 +4,19 @@ export default function TodoList({ target, state, onToggle, onRemove }) {
 
   this.state = state
 
-  this.setState = newState => {
+  this.setState = (newState) => {
+
     this.state = newState;
     this.render()
   }
 
   this.render = () => {
+    const { isLoading, todos } = this.state
+
+    if (isLoading) {
+      todoElement.innerHTML = "isLoading!"
+      return
+    }
 
     if (this.state.length === 0) {
       todoElement.innerHTML = "none"
@@ -17,7 +24,7 @@ export default function TodoList({ target, state, onToggle, onRemove }) {
     }
     todoElement.innerHTML = `
       <ul>
-        ${this.state.map(({ _id, content, isCompleted }) => `
+        ${todos.map(({ _id, content, isCompleted }) => `
       <li data-id="${_id}" class='todo_item'>
         ${isCompleted ? `<s>${content}</s>` : content}
         <button class="removeButton">delete</button>

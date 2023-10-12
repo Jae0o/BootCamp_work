@@ -1,3 +1,4 @@
+import TodoForm from "./TodoForm.js"
 import TodoList from "./TodoList.js"
 
 const data = [
@@ -27,5 +28,13 @@ new TodoList({
   },
   onToggle: (id) => {
     console.log(id)
+  }
+})
+
+
+new TodoForm({
+  target: appElement,
+  onSubmit: (text) => {
+    console.log(text)
   }
 })

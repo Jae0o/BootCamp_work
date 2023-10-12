@@ -10,6 +10,11 @@ export default function TodoList({ target, state, onToggle, onRemove }) {
   }
 
   this.render = () => {
+
+    if (this.state.length === 0) {
+      todoElement.innerHTML = "none"
+      return
+    }
     todoElement.innerHTML = `
       <ul>
         ${this.state.map(({ _id, content, isCompleted }) => `

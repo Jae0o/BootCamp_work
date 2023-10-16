@@ -1,18 +1,25 @@
 import { request } from "./API.js"
+import LinkButton from "./LinkButton.js"
 import PostList from "./PostList.js"
 
-export default function PostsPage({ target, state }) {
+
+export default function PostsPage({ target }) {
   const pageElement = document.createElement('div')
 
 
   const postList = new PostList({
-    target,
+    target: pageElement,
     state: []
   })
 
-  const newPostButton = document.createElement('button')
-  newPostButton.textContent = 'New Post'
-  pageElement.append(newPostButton)
+
+  new LinkButton({
+    target: pageElement,
+    state: {
+      text: "페이지 생성",
+      link: '/posts/new'
+    }
+  })
 
   const fetchPosts = async () => {
     const posts = await request('/posts')

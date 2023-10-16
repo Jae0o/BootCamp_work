@@ -14,3 +14,8 @@ export const setItem = (key, value) => {
   console.log(value)
   storage.setItem(key, JSON.stringify(value))
 }
+
+export const removeItem = (key) => {
+  storage.removeItem(key)
+
+}

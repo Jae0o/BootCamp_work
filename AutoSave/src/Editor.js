@@ -21,7 +21,6 @@ export default function Editor({ target, state = { title: "", content: "" }, onE
     }
     isInitialize = true
   }
-  this.render()
 
   editorElement.addEventListener('keyup', (e) => {
     const { target } = e
@@ -38,5 +37,5 @@ export default function Editor({ target, state = { title: "", content: "" }, onE
       onEditing(this.state)
     }
   })
-
+  this.render()
 }

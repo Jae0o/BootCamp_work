@@ -4,38 +4,56 @@ export default function Editor({ target, state = { title: "", content: "" }, onE
 
   this.state = state;
 
-  let isInitialize = false
+
+  editorElement.innerHTML = `
+  <input type="text" name="title" style="width:600px;"/>
+  <div name="content" contentEditable='true' style="width:600px;height:400px;"></div>
+`
 
   this.setState = (newState) => {
     this.state = newState
-    editorElement.querySelector('[name=title]').value = this.state.title
-    editorElement.querySelector('[name=content]').value = this.state.content
+
     this.render()
   }
   this.render = () => {
-    if (!isInitialize) {
-      editorElement.innerHTML = `
-      <input type="text" name="title" value="${this.state.title}" style="width:600px;"/>
-      <textarea name="content" style="width:600px;height:400px;">${this.state.content}</textarea>
-    `
-    }
-    isInitialize = true
-  }
-
-  editorElement.addEventListener('keyup', (e) => {
-    const { target } = e
-    const name = target.getAttribute("name")
-
-    if (this.state[name] !== undefined) {
-      const nextState = {
-        ...this.state,
-        [name]: target.value
+    const changeLines = this.state.content.split('\n').map(line => {
+      if (line.indexOf('# ') === 0) {
+        return `<h1>${line.substring(2)}</h1>`
       }
 
-      this.setState(nextState)
+      if (line.indexOf('## ') === 0) {
+        return `<h2>${line.substring(3)}</h2>`
+      }
 
-      onEditing(this.state)
-    }
-  })
+      if (line.indexOf('### ') === 0) {
+        return `<h3>${line.substring(3)}</h3>`
+      }
+
+      return line
+    }).join("<br>")
+
+    editorElement.querySelector('[name=title]').value = this.state.title
+    editorElement.querySelector('[name=content]').innerHTML = changeLines
+  }
+
   this.render()
+
+
+  editorElement.querySelector('[name=title]').addEventListener('keyup', e => {
+    const nextState = {
+      ...this.state,
+      title: e.target.value
+    }
+    this.setState(nextState)
+    onEditing(this.state)
+  })
+
+  editorElement.querySelector('[name=content]').addEventListener('input', (e) => {
+    const nextState = {
+      ...this.state,
+      content: e.target.innerText
+    }
+    this.setState(nextState)
+    // onEditing(this.state)
+  })
 }

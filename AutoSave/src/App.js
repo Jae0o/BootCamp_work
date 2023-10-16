@@ -25,15 +25,19 @@ export default function App({ target }) {
 
   this.route = () => {
     target.innerHTML = ''
+
     const { pathname } = window.location
-    console.log(pathname)
+
     if (pathname === '/') {
-      postsPage.render()
+      postsPage.setState()
+
     } else if (pathname.indexOf('/posts/') === 0) {
+
       const [, , postId] = pathname.split('/')
       postEdiorPage.setState({ postId })
     }
   }
+
   this.route()
   initRouter(() => this.route())
 } 

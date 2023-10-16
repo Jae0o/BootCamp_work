@@ -20,16 +20,17 @@ export default function PostsPage({ target }) {
       link: '/posts/new'
     }
   })
-
-  const fetchPosts = async () => {
-    const posts = await request('/posts')
-    postList.setState(posts)
-  }
-
-  this.render = async () => {
-    await fetchPosts()
-
+  this.render = () => {
     target.appendChild(pageElement)
   }
+
+  this.setState = async () => {
+    const posts = await request('/posts')
+    postList.setState(posts)
+    this.render()
+  }
+
+
+
 
 }

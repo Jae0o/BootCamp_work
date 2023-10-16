@@ -8,6 +8,8 @@ export default function Editor({ target, state = { title: "", content: "" }, onE
 
   this.setState = (newState) => {
     this.state = newState
+    editorElement.querySelector('[name=title]').value = this.state.title
+    editorElement.querySelector('[name=content]').value = this.state.content
     this.render()
   }
   this.render = () => {

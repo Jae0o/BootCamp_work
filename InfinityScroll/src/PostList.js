@@ -13,6 +13,7 @@ export default function PostList({ target, state, onScrollEnded }) {
           this.state.photos.length < this.state.totalCount
         ) {
           onScrollEnded();
+          console.log("fff");
         }
       });
     },
@@ -54,7 +55,6 @@ export default function PostList({ target, state, onScrollEnded }) {
       }
     });
     const nextLiElement = ulElement.querySelector("li:last-child");
-
     if (nextLiElement !== null) {
       if (lastliElement !== null) {
         observer.unobserve(lastliElement);

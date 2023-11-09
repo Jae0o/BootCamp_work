@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    // 완전 엄격한 문법!
+    "strict": true
+  },
+  // 설정에 포함되는 파일을 지정하는 코드로
+  // src 내부의 모든 폴더의 모든.ts 파일을 의미함
+  "include": ["src/**/*.ts"]
+}

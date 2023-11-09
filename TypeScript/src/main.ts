@@ -1,3 +1,2 @@
-function hello(text) {
-  console.log(text);
-}
+const a: string = "hello typeScript";
+console.log(a);

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <h1 v-if="isShow">hello!</h1>
+      <template v-else-if="[]">
+        <h2>is truthy</h2>
+        <h3>두개 이상의 엘리먼트는</h3>
+        <h4>template</h4>
+      </template>
+      <h1 v-else>is else!</h1>
+    </div>
+  </body>
+  <script>
+    const App = {
+      data() {
+        return {
+          isShow: 0,
+        };
+      },
+    };
+    const vm = Vue.createApp(App).mount("#app");
+  </script>
+</html>

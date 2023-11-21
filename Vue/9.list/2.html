@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <form @submit="addNewTodo">
+        <label for="inputTodo">Todo</label>
+        <input id="inputTodo" type="text" v-model="newTodoText" placeholder="입력" />
+      </form>
+      <ul>
+        <todo-item v-for="todo in todos" :key="todo.id" :todo="todo" @remove="removeTodo"></todo-item>
+      </ul>
+    </div>
+  </body>
+  <script>
+    function randomID() {
+      return `${Date.now()}${Math.random()}`;
+    }
+    const TodoItem = {
+      template: `
+        <li>
+          {{ todo.title}}
+          <button @click="$emit('remove',todo.id)">Remove</button>
+        </li>
+      `,
+      props: ["todo", "removeTodo"],
+    };
+    const App = {
+      components: {
+        TodoItem,
+      },
+      data() {
+        return {
+          newTodoText: "",
+          todos: [],
+        };
+      },
+      methods: {
+        addNewTodo(event) {
+          event.preventDefault();
+
+          this.todos.push({
+            id: randomID(),
+            title: this.newTodoText,
+          });
+          this.newTodoText = "";
+          console.log(this.todos);
+        },
+        removeTodo(id) {
+          this.todos = this.todos.filter((item) => item.id !== id);
+        },
+      },
+    };
+    const vm = Vue.createApp(App).mount("#app");
+  </script>
+</html>

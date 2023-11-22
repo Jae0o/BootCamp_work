@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <style></style>
+  <body>
+    <div id="app">
+      <h1>{{msg}}</h1>
+      <input type="text" :value="msg" @input="msg = $event.target.value" />
+    </div>
+  </body>
+  <script>
+    const App = {
+      data() {
+        return {
+          msg: "Hi!",
+        };
+      },
+    };
+    const vm = Vue.createApp(App).mount("#app");
+  </script>
+</html>

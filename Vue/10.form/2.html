@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <style></style>
+  <body>
+    <div id="app">
+      <input type="checkbox" value="value1" v-model="checked" />
+      <input type="checkbox" value="value2" v-model="checked" />
+      <input type="checkbox" value="value3" v-model="checked" />
+      <input type="checkbox" value="value4" v-model="checked" />
+    </div>
+  </body>
+  <script>
+    const App = {
+      data() {
+        return {
+          checked: [],
+        };
+      },
+      watch: {
+        checked(newValue) {
+          console.log(newValue);
+        },
+      },
+    };
+    const vm = Vue.createApp(App).mount("#app");
+  </script>
+</html>

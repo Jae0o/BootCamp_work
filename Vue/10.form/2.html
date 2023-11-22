@@ -13,6 +13,12 @@
       <input type="checkbox" value="value2" v-model="checked" />
       <input type="checkbox" value="value3" v-model="checked" />
       <input type="checkbox" value="value4" v-model="checked" />
+      <select v-model="selected">
+        <option value=""></option>
+        <option value="2"></option>
+        <option value="3"></option>
+        <option value="4"></option>
+      </select>
     </div>
   </body>
   <script>
@@ -20,6 +26,7 @@
       data() {
         return {
           checked: [],
+          selected: "",
         };
       },
       watch: {

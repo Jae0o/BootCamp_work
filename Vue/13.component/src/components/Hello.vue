@@ -7,6 +7,13 @@ export default {
   props: {
     message: String,
   },
-  emits: ["helloEvent"],
+  emits: {
+    helloEvent: (value) => {
+      if (typeof value === "string") {
+        return true;
+      }
+      return false;
+    },
+  },
 };
 </script>

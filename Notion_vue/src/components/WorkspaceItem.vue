@@ -15,7 +15,7 @@
       <span
         :class="{ active: showChildren }"
         class="material-icons"
-        @click="showChildren = !showChildren"
+        @click.stop="showChildren = !showChildren"
         >play_arrow</span
       >
 
@@ -26,12 +26,12 @@
       <div class="actions">
         <span
           class="material-icons"
-          @click="createWorkspcae"
+          @click.stop="createWorkspcae"
           >add</span
         >
         <span
           class="material-icons"
-          @click="deleteWorkspace"
+          @click.stop="deleteWorkspace"
           >delete
         </span>
       </div>
@@ -73,6 +73,11 @@
       hasChildren() {
         return this.workspace.documents && this.workspace.documents.length;
       },
+    },
+    created() {
+      this.showChildren = this.$store.state.workspace.currentWorkspacePath.some(
+        (ws) => ws.id === this.workspace.id
+      );
     },
 
     methods: {

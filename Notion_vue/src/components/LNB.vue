@@ -45,13 +45,16 @@
       },
     },
     created() {
-      this.$store.dispatch("workspace/readWorkspaces");
-      this.navInit;
+      this.workspacesInit();
     },
     mounted() {
       this.navInit();
     },
     methods: {
+      async workspacesInit() {
+        await this.$store.dispatch("workspace/readWorkspaces");
+        console.log(this.$store.state.workspace.currentWorkspacePath);
+      },
       navInit() {
         interact(this.$refs.nav)
           .resizable({

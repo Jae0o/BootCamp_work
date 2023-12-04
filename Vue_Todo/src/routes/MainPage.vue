@@ -1,13 +1,11 @@
 <template>
-  <h1>main Page</h1>
+  <main>
+    <TodoCreator />
+    <TodoList />
+  </main>
 </template>
 
 <script setup lang="ts">
-(async () => {
-  const res = await fetch("/api/hello", {
-    method: "POST"
-  });
-  const test = res.json();
-  console.log(test);
-})();
+import TodoCreator from "~/components/TodoCreator.vue";
+import TodoList from "~/components/TodoList.vue";
 </script>

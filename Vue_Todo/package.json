@@ -10,6 +10,7 @@
     "vercel": "vercel dev"
   },
   "dependencies": {
+    "axios": "^1.6.2",
     "pinia": "^2.1.7",
     "vue": "^3.3.8",
     "vue-router": "^4.2.5"
@@ -18,11 +19,13 @@
     "@typescript-eslint/eslint-plugin": "^6.13.1",
     "@typescript-eslint/parser": "^6.13.1",
     "@vitejs/plugin-vue": "^4.5.0",
+    "dotenv": "^16.3.1",
     "eslint": "^8.54.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.1",
     "eslint-plugin-vue": "^9.18.1",
     "prettier": "^3.1.0",
+    "sass": "^1.69.5",
     "typescript": "^5.2.2",
     "vercel": "^32.5.6",
     "vite": "^5.0.0",
@@ -31,7 +34,7 @@
   "overrides": {
     "@vercel/node": {
       "ts-node": "10.9.1",
-      "typescript" : "5.2.2"
+      "typescript": "5.2.2"
     }
   }
 }

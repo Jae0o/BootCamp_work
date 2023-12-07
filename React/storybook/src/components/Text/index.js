@@ -1,4 +1,5 @@
 import "./Text.css";
+import PropTypes from "prop-types";
 
 const Text = ({
   children,
@@ -40,6 +41,18 @@ const Text = ({
       {children}
     </Tag>
   );
+};
+
+Text.propTypes = {
+  children: PropTypes.node.isRequired,
+  size: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  block: PropTypes.bool,
+  paragraph: PropTypes.bool,
+  delete: PropTypes.bool,
+  code: PropTypes.bool,
+  mark: PropTypes.bool,
+  strong: PropTypes.bool,
+  color: PropTypes.string,
 };
 
 export default Text;

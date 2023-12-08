@@ -1,0 +1,8 @@
+.upload-input {
+  display: none;
+}
+
+.upload-container {
+  display: inline-block;
+  cursor: pointer;
+}

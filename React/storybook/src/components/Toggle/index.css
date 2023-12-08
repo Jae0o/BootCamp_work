@@ -1,0 +1,44 @@
+.toggleContainer {
+  display: inline-block;
+  cursor: pointer;
+  user-select: none;
+}
+
+.toggleInput {
+  display: none;
+}
+
+.toggleInput:checked + div {
+  background-color: lightgreen;
+}
+.toggleInput:disabled + div {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+.toggleInput:checked + .toggleSwitch::after {
+  left: calc(100% - 26px);
+}
+.toggleInput:disabled + .toggleSwitch::after {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.toggleSwitch {
+  width: 64px;
+  height: 30px;
+  padding: 2px;
+  background-color: #ccc;
+  border-radius: 15px;
+  box-sizing: border-box;
+}
+
+.toggleSwitch::after {
+  content: "";
+  position: relative;
+  left: 0;
+  display: block;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: #fff;
+}

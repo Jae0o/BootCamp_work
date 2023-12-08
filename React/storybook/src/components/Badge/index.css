@@ -1,0 +1,26 @@
+.badge-container {
+  position: relative;
+  display: inline-block;
+}
+
+.badge-super {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-flex;
+  align-items: center;
+  height: 20px;
+  padding: 0 8px;
+  font-size: 12px;
+  border-radius: 20px;
+  color: white;
+  background-color: #f44;
+  transform: translate(50%, -50%);
+}
+
+.dot {
+  padding: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}

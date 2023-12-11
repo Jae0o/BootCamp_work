@@ -1,7 +1,7 @@
 import useScroll from "../../hooks/useScroll";
 
 export default {
-  title: "Hover/useScroll",
+  title: "Hook/useScroll",
 };
 
 const boxStyle = {

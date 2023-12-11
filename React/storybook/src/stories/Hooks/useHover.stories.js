@@ -1,7 +1,7 @@
 import useHover from "../../hooks/useHover";
 
 export default {
-  title: "Hover/useHover",
+  title: "Hook/useHover",
 };
 
 const boxStyle = {

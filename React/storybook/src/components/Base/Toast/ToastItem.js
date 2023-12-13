@@ -1,5 +1,5 @@
 import Text from "../Text";
-import useTimeout from "../../hooks/useTimeout";
+import useTimeout from "../../../hooks/useTimeout";
 import "./index.css";
 
 const ToastItem = ({ id, message, duration, onDone }) => {

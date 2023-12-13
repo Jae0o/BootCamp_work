@@ -1,4 +1,4 @@
-import useToggle from "../../hooks/useToggle";
+import useToggle from "../../../hooks/useToggle";
 import "./index.css";
 
 const Toggle = ({ name, on = false, disabled, onChange, ...props }) => {

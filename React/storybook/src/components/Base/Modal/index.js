@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo } from "react";
 import ReactDOM from "react-dom";
-import useClickAway from "../../hooks/useClickAway";
+import useClickAway from "../../../hooks/useClickAway";
 
 const backgroundStyle = {
   position: "fixed",

@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useAsync } from "../hooks";
 import { Spinner, Header } from "../components";
-import PostList from "./Components/PostList/PostList";
-import PostProvider from "./context/PostProvider";
+import PostList from "../Todo-axios/Components/PostList/PostList";
+import PostProvider from "../context/PostProvider";
 import { useCallback } from "react";
-import PostAddForm from "./Components/PostAddForm/PostAddForm";
+import PostAddForm from "../Todo-axios/Components/PostAddForm/PostAddForm";
 
 const TodoApp = () => {
   const initialPosts = useAsync(async () => {

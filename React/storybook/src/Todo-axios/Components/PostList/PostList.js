@@ -1,4 +1,4 @@
-import { usePostContext } from "../../context/PostProvider.js";
+import { usePostContext } from "../../../context/PostProvider.js";
 import PostItem from "../PostItem/PostItem.js";
 
 const PostList = () => {

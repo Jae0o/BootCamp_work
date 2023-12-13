@@ -1,6 +1,6 @@
 import { Spinner } from "../../../components";
 import { useForm } from "../../../hooks";
-import { usePostContext } from "../../context/PostProvider";
+import { usePostContext } from "../../../context/PostProvider";
 
 const PostAddForm = () => {
   const { onAddPost } = usePostContext();

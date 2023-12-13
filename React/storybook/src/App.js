@@ -1,11 +1,26 @@
-import AxiosTest from "./Todo-axios";
+import { Route, Routes } from "react-router-dom";
+import { PostDetailPage, PostPage } from "./Pages";
+import DefaultTemplate from "./Todo-axios/Components/template/DefaultTemplate.js";
 
-function TodoApp() {
+function App() {
   return (
-    <div className="App">
-      <AxiosTest />
-    </div>
+    <DefaultTemplate>
+      <Routes>
+        <Route
+          path="/"
+          element={<h1>HOME</h1>}
+        />
+        <Route
+          path="/posts"
+          element={<PostPage />}
+        />
+        <Route
+          path="/posts/:id"
+          element={<PostDetailPage />}
+        />
+      </Routes>
+    </DefaultTemplate>
   );
 }
 
-export default TodoApp;
+export default App;

@@ -13,7 +13,7 @@ const railStyle = {
   backgroundColor: "#aaa",
 };
 
-const tarckStyle = {
+const trackStyle = {
   position: "absolute",
   top: "6px",
   left: "0px",
@@ -30,7 +30,7 @@ const Progress = ({ value, ...props }) => {
   return (
     <div style={{ ...containerStyle, ...props.style }}>
       <div style={{ ...railStyle }} />
-      <div style={{ ...tarckStyle, width: `${value}%` }} />
+      <div style={{ ...trackStyle, width: `${value}%` }} />
     </div>
   );
 };

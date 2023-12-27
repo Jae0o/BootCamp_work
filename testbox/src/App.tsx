@@ -1,10 +1,11 @@
+import ReactPlayer from "react-player";
 import "./App.css";
 
 function App() {
   return (
-    <main className="test__container">
-      <button className="test__button">Test용 버튼!</button>
-    </main>
+    <>
+      <ReactPlayer url={"https://www.youtube.com/watch?v=kBivgP4QC9c"} />
+    </>
   );
 }
 
